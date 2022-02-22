@@ -104,17 +104,20 @@ export default class Subjects extends Component {
             title='Theory Credit(s)'
             dataIndex='creditTheory'
             key='creditTheory'
+            align='right'
           />
           <Column
             title='Laboratory Credit(s)'
             dataIndex='creditLab'
             key='creditLab'
+            align='right'
           />
         </ColumnGroup>
         <Column
           title='Course Number'
           dataIndex='courseNo'
           key='courseNo'
+          align='right'
         />
         <Column
           title='Action'

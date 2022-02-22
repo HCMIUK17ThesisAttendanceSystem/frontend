@@ -37,7 +37,10 @@ export default class Courses extends Component {
           loading: false
         })
       })
-      .catch(err => this.props.onError(err));
+      .catch(err => {
+        this.props.onError(err)
+        this.setState({ loading: false })
+      });
   }
 
   downloadOverallReport = (courseId) => {
@@ -58,7 +61,10 @@ export default class Courses extends Component {
           loading: false
         });
       })
-      .catch(err => this.props.onError(err));
+      .catch(err => {
+        this.props.onError(err)
+        this.setState({ loading: false })
+      });
   }
 
   getSubject = (subjectId) => this.state.subjects.find(subject => subject._id === subjectId);

@@ -199,6 +199,7 @@ export default class Courses extends Component {
           title='Weekday'
           key='weekday'
           render={(text, record) => convertToWeekday(record.weekday)}
+          align='right'
         />
         <Column
           title='Periods'
@@ -206,6 +207,15 @@ export default class Courses extends Component {
           render={(text, record) => (
             record.periods[0] + '-' + record.periods[record.periods.length - 1]
           )}
+          align='right'
+        />
+        <Column
+          title='Student number'
+          key='studentNo'
+          render={(text, record) => (
+            record.regStudentIds.length
+          )}
+          align='right'
         />
         <Column
           title='Action'

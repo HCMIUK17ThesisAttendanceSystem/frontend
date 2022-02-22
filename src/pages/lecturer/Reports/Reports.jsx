@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import { Typography, Table } from 'antd'
-import { CheckCircleTwoTone, CloseCircleTwoTone } from '@ant-design/icons'
+import { Typography, Table, Tag } from 'antd'
 
 import NavBreadcrumb from '../../../components/Navigation/NavBreadcrumb/NavBreadcrumb'
 import axios from '../../../axios-instance'
@@ -34,7 +33,10 @@ export default class Reports extends Component {
           loading: false
         })
       })
-      .catch(err => this.props.onError(err))
+      .catch(err => {
+        this.props.onError(err)
+        this.setState({ loading: false })
+      })
   }
 
   render() {
@@ -55,8 +57,8 @@ export default class Reports extends Component {
           dates.map((date, index) => (
             <Column title={date} key={date}
               render={(text, record) => record.attendances[index]
-                ? <CheckCircleTwoTone twoToneColor="#52c41a" />
-                : <CloseCircleTwoTone twoToneColor="#eb2f96" />
+                ? <Tag>{record.attendances[index]}</Tag>
+                : <Tag color='volcano'>Absence</Tag>
               }
             />
           ))
